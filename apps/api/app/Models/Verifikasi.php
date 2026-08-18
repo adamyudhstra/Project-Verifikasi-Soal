@@ -9,11 +9,15 @@ class Verifikasi extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['soal_id', 'verifikator_id', 'action', 'catatan'];
+    protected $fillable = ['soal_version_id', 'verifikator_id', 'action', 'catatan'];
 
-    public function soal()
+    protected $casts = [
+        'action' => \App\Enums\VerifikasiAction::class,
+    ];
+
+    public function soalVersion()
     {
-        return $this->belongsTo(Soal::class);
+        return $this->belongsTo(SoalVersion::class);
     }
 
     public function verifikator()
