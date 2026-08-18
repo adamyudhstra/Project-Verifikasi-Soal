@@ -14,10 +14,11 @@ class Soal extends Model
         'semester_id',
         'uploader_id',
         'exam_category',
-        'file_path',
-        'version',
-        'status',
-        'catatan'
+        'current_version_id'
+    ];
+
+    protected $casts = [
+        'exam_category' => \App\Enums\ExamCategory::class,
     ];
 
     public function course()
@@ -40,8 +41,18 @@ class Soal extends Model
         return $this->belongsToMany(Clo::class);
     }
 
+    public function versions()
+    {
+        return $this->hasMany(SoalVersion::class);
+    }
+
+    public function currentVersion()
+    {
+        return $this->belongsTo(SoalVersion::class, 'current_version_id');
+    }
+
     public function verifikasis()
     {
-        return $this->hasMany(Verifikasi::class);
+        return $this->hasManyThrough(Verifikasi::class, SoalVersion::class);
     }
 }
