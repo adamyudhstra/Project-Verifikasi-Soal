@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+*.local
+
+# System & OS Files
+.DS_Store
+Thumbs.db
+*.swp
+
+# Laravel
+public/hot
+public/storage
+storage/*.key
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/testing/*
+storage/framework/views/*
+storage/logs/*
+
+# Vite / React Build
+dist/
+build/
+.vite/
+
+# Agent Artifacts
+.agents/
+.gemini/
+
+# Master Agent Instructions Exclusions
+.env
+.env.*
+vendor/
+node_modules/
+storage/app/private/
+storage/logs/
+*.sqlite
+*.sqlite3
+berkas soal
+credential
+secret
+token
